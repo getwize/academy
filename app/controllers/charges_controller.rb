@@ -6,7 +6,7 @@ before_action :authenticate_user!
   		@plan = Plan.find_by!(id: @user.plan_id)
 	end
 	
-	#creates a   subscription on stripe when a user pays for the software
+	#creates a subscription on stripe when a user pays for the software
 	def create
 	 
 	  @user = current_user
@@ -14,9 +14,9 @@ before_action :authenticate_user!
 	  token = params[:stripeToken]
 
 	  if Rails.env.production?
-     		 Stripe.api_key = ENV['Javier_Secret_Key']
+     		 Stripe.api_key = ENV['STRIPE_SECRET_KEY']
     else
-     		 Stripe.api_key = ENV['Javier_Secret_Key'] 
+     		 Stripe.api_key = ENV['STRIPE_SECRET_KEY'] 
      end
 
 	  customer = Stripe::Customer.create(
@@ -48,9 +48,9 @@ before_action :authenticate_user!
   		@user = current_user
 	  	@plan = Plan.find_by!(id: @user.plan_id)
 		if Rails.env.production?
-     		 Stripe.api_key = ENV['Javier_Secret_Key']
+     		 Stripe.api_key = ENV['STRIPE_SECRET_KEY']
     	else
-     		 Stripe.api_key = ENV['Javier_Secret_Key']
+     		 Stripe.api_key = ENV['STRIPE_SECRET_KEY']
      	end
 
 		  token = params[:stripeToken]

@@ -6,10 +6,10 @@ class SubscriptionsController < ApplicationController
 		@user = current_user
 		 @plan = Plan.find_by!(id: @user.plan_id)
 		if Rails.env.production?
-     		 Stripe.api_key = ENV['Javier_Secret_Key']
+     		 Stripe.api_key = ENV['STRIPE_SECRET_KEY']
 
     	else
-     		 Stripe.api_key = ENV['Javier_Secret_Key']
+     		 Stripe.api_key = ENV['STRIPE_SECRET_KEY']
      	end
 
 		 subscription = Stripe::Subscription.retrieve(current_user.sub_id)
@@ -28,10 +28,10 @@ class SubscriptionsController < ApplicationController
 
 		
 		if Rails.env.production?
-     		 Stripe.api_key = ENV['Javier_Secret_Key']
+     		 Stripe.api_key = ENV['STRIPE_SECRET_KEY']
 
     	else
-     		 Stripe.api_key = ENV['Javier_Secret_Key']
+     		 Stripe.api_key = ENV['STRIPE_SECRET_KEY']
      	end
 
 		 subscription = Stripe::Subscription.retrieve(current_user.sub_id)
@@ -43,10 +43,10 @@ class SubscriptionsController < ApplicationController
 	#cancels/pauses a plan
 	def destroy
 		if Rails.env.production?
-     		 Stripe.api_key = ENV['Javier_Secret_Key']
+     		 Stripe.api_key = ENV['STRIPE_SECRET_KEY']
 
     	else
-     		 Stripe.api_key = ENV['Javier_Secret_Key']
+     		 Stripe.api_key = ENV['STRIPE_SECRET_KEY']
      	end
 
 		 subscription = Stripe::Subscription.retrieve(current_user.sub_id)
