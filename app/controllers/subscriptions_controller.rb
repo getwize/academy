@@ -9,7 +9,7 @@ class SubscriptionsController < ApplicationController
      		 Stripe.api_key = ENV['Javier_Secret_Key']
 
     	else
-     		 Stripe.api_key = ENV['STRIPE_SECRET_KEY']
+     		 Stripe.api_key = ENV['Javier_Secret_Key']
      	end
 
 		 subscription = Stripe::Subscription.retrieve(current_user.sub_id)
@@ -31,7 +31,7 @@ class SubscriptionsController < ApplicationController
      		 Stripe.api_key = ENV['Javier_Secret_Key']
 
     	else
-     		 Stripe.api_key = ENV['STRIPE_SECRET_KEY']
+     		 Stripe.api_key = ENV['Javier_Secret_Key']
      	end
 
 		 subscription = Stripe::Subscription.retrieve(current_user.sub_id)
@@ -46,7 +46,7 @@ class SubscriptionsController < ApplicationController
      		 Stripe.api_key = ENV['Javier_Secret_Key']
 
     	else
-     		 Stripe.api_key = ENV['STRIPE_SECRET_KEY']
+     		 Stripe.api_key = ENV['Javier_Secret_Key']
      	end
 
 		 subscription = Stripe::Subscription.retrieve(current_user.sub_id)
